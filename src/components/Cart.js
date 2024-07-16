@@ -55,7 +55,7 @@ const Cart = () => {
         </ul>
         <div className="cart-total">Total: ${calculateTotal()}</div>
         <button className="add-to-cart-button-pay" onClick={handleCheckout}>Buy Now!</button>
-        {showLogin && <Link to="/login" className="login-button">Login to continue...</Link>}
+        {showLogin && <Link to="/login" className="add-to-cart-button-cart">Login to continue...</Link>}
       </div>
     </div>
   );

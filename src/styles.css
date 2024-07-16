@@ -148,7 +148,12 @@ header {
 
 
 
-
+.hero-section-cart {
+  position: relative ;
+  text-align: center;
+  color: white;
+  margin-top: 30px; /* Ajustar según la altura del header */
+}
 
 /*ESTILOS PARA LA PAGINA HOME*/
 .home-container {
@@ -159,9 +164,18 @@ header {
   position: relative;
   text-align: center;
   color: white;
-  margin-top: 60px; /* Ajustar según la altura del header */
+  margin-top: 0px; /* Ajustar según la altura del header */
 }
 
+.hero-text-cart {
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  transform: translate(-50%, -25%);
+  background-color: rgba(0, 0, 0, 0.65);
+  padding: 50px;
+  border-radius: 8px;
+}
 .hero-image {
   width: 100%;
   height: auto;
@@ -172,7 +186,7 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.65);
   padding: 20px;
   border-radius: 8px;
 }
@@ -265,31 +279,79 @@ header {
     width: 300px;
     height: auto;
   } */
-  
-  .add-to-cart-button {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .add-to-cart-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .car-info {
-    max-width: 400px;
-    text-align: left;
-  }
-  
-  /* ESTILOS PARA EL CARRO DE COMPRAS*/
+.add-to-cart-button-pay {
+  margin-top: 10px;
+  position: left;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(0%);
+  padding: 10px 20px;
+  background-color: #28a745; /* Color verde cuando se agrega al carrito */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button-pay:hover {
+  background-color: #0056b3;
+
+}
+
+.add-to-cart-button-cart {
+  margin-top: 10px;
+  position: left;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(0%);
+  padding: 10px 20px;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button-cart:hover {
+  background-color: #0056b3;
+
+}
+
+.add-to-cart-button {
+  margin-top: 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+  background-color: #0056b3;
+
+}
+.add-to-cart-button.added {
+  background-color: #28a745; /* Color verde cuando se agrega al carrito */
+}
+.add-to-cart-button.added:hover {
+  background-color: #218838; /* Color verde más oscuro cuando se pasa el mouse */
+}
+.car-info {
+  flex: 1 1 45%;
+
+  max-width: 400px;
+  text-align: left;
+}
+
+/* ESTILOS PARA EL CARRO DE COMPRAS*/
 
 
  /* ESTILOS PARA LA BARRA INFERIOR DEL HEADER*/   

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './List.css'
 
-const AccessoriesList = ({ searchTerm }) => {
+const AccesoriesList = ({ searchTerm }) => {
   const [accesories, setAccesories] = useState([]);
   const [filteredAccesories, setFilteredAccesories] = useState([]);
 
@@ -81,21 +82,20 @@ const AccessoriesList = ({ searchTerm }) => {
   return (
     <div>
       <h2>Accesories for Sale</h2>
-      {Array(Math.ceil(filteredAccesories.length / 3)).fill(0).map((_, index) => (
-        <div key={index} className="car-list">
-          {filteredAccesories.slice(index * 3, (index + 1) * 3).map((accesorie) => (
-            <div key={accesorie.id} className="car-item">
-              <div className="image-page">
-                <img src={`/images/${accesorie.id}.png`} className="imagepage" alt={accesorie.name} />
-              </div>
-              <Link to={`/accessories/${accesorie.id}`} state={{ accesorie }}>{accesorie.name} - {accesorie.price} </Link>
+      <div className="list">
+        {filteredAccesories.map((accesorie) => (
+          <div key={accesorie.id} className="item">
+            <div className="image-page">
+              <img src={`/images/${accesorie.id}.png`} className="imagepage" alt={accesorie.name} />
             </div>
-          ))}
-        </div>
-      ))}
+            <Link to={`/accessories/${accesorie.id}`} state={{ accesorie }}>{accesorie.name} - {accesorie.price} </Link>
+          </div>
+        ))}
+      </div>
+      ))
       <Link to="/cart">Go to Cart</Link> {/* Añadir enlace al carrito */}
     </div>
   );
 };
 
-export default AccessoriesList;
+export default AccesoriesList;

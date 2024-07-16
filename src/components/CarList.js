@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './List.css'
 
 const CarList = ({ searchTerm }) => {
   const [cars, setCars] = useState([]);
@@ -85,10 +86,11 @@ const CarList = ({ searchTerm }) => {
           price: '$293,480.00 USD',
           description: 'The Ferrari F8 Tributo is a high-performance supercar that represents the pinnacle of Ferrari engineering. With its powerful engine and state-of-the-art technology, it offers a breathtaking driving experience and continues Ferrari\'s legacy of creating some of the world\'s most desirable cars.'
         }
-      ];
-      
+    ];
+
     setCars(mockCars);
   }, []);
+
   useEffect(() => {
     const filtered = cars.filter((car) => {
       return car.name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -99,19 +101,19 @@ const CarList = ({ searchTerm }) => {
   return (
     <div>
       <h2>Cars for Sale</h2>
-      {Array(Math.ceil(filteredCars.length / 3)).fill(0).map((_, index) => (
-        <div key={index} className="car-list">
-          {filteredCars.slice(index * 3, (index + 1) * 3).map((car) => (
-            <div key={car.id} className="car-item">
-              <div className="image-page">
-                <img src={`/images/${car.id}.png`} className="imagepage" alt={car.name} />
-              </div>
-              <Link to={`/cars/${car.id}`} state={{ car }}>{car.name} - {car.price} </Link>
+      <div className="list">
+        {filteredCars.map((car) => (
+          <div key={car.id} className="item">
+            <div className="image-page">
+              <img src={`/images/${car.id}.png`} className="imagepage" alt={car.name} />
             </div>
-          ))}
-        </div>
-      ))}
-      <Link to="/cart">Go to Cart</Link> {/* Añadir enlace al carrito */}
+            <Link to={`/cars/${car.id}`} state={{ car }}>
+              {car.name} - {car.price}
+            </Link>
+          </div>
+        ))}
+      </div>
+      <Link to="/cart">Go to Cart</Link>
     </div>
   );
 };
